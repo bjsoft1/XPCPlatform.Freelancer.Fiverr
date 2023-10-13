@@ -33,8 +33,8 @@ import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
     IdentityConfigModule.forRoot(),
     TenantManagementConfigModule.forRoot(),
     SettingManagementConfigModule.forRoot(),
-    
-    
+
+
     FeatureManagementModule.forRoot(),
               ThemeLeptonXModule.forRoot(),
               SideMenuLayoutModule.forRoot(),
