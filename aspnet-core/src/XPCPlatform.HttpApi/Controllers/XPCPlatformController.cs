@@ -1,5 +1,5 @@
-﻿using XPCPlatform.Localization;
-using Volo.Abp.AspNetCore.Mvc;
+﻿using Volo.Abp.AspNetCore.Mvc;
+using XPCPlatform.Localization;
 
 namespace XPCPlatform.Controllers;
 

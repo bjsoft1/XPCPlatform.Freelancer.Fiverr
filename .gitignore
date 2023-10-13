@@ -59,3 +59,13 @@
 
 /aspnet-core/test/XPCPlatform.HttpApi.Client.ConsoleTestApp/obj
 /aspnet-core/test/XPCPlatform.HttpApi.Client.ConsoleTestApp/bin
+/aspnet-core/.vs
+/aspnet-core/src/XPCPlatform.Application.Contracts/obj
+/aspnet-core/src/XPCPlatform.HttpApi.Client/obj
+/aspnet-core/src/XPCPlatform.HttpApi.Client/obj
+/aspnet-core/.vs/XPCPlatform/v17
+/aspnet-core/src/XPCPlatform.Application.Contracts/bin
+/aspnet-core/src/XPCPlatform.Application.Contracts/obj
+/aspnet-core/src/XPCPlatform.HttpApi.Client/bin
+/aspnet-core/src/XPCPlatform.HttpApi.Client/obj
+/aspnet-core/.vs
