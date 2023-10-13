@@ -23,4 +23,11 @@ export const environment = {
       rootNamespace: 'XPCPlatform',
     },
   },
+
+webUrl:
+{
+  HomePage: '',
+  AdminPage: 'Auth/Admin/'
+}
+
 } as Environment;
