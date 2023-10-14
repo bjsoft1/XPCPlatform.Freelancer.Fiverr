@@ -23,11 +23,11 @@ export const environment = {
       rootNamespace: 'XPCPlatform',
     },
   },
+} as Environment;
 
-webUrl:
+export const ROUT_URLS = 
 {
   HomePage: '',
-  AdminPage: 'Auth/Admin/'
+  AdminPage: 'auth/admin',
+  ForgotPassword:'forgot-password',
 }
-
-} as Environment;

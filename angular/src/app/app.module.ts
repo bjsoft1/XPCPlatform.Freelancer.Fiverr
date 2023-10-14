@@ -17,6 +17,8 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
 import { FeatureManagementModule } from '@abp/ng.feature-management';
 import { AbpOAuthModule } from '@abp/ng.oauth';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
+import { HeaderComponent } from './Admins/Commons/header/header.component';
+import { FooterComponent } from './Admins/Commons/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,7 @@ import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
               SideMenuLayoutModule.forRoot(),
               AccountLayoutModule.forRoot(),
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   providers: [APP_ROUTE_PROVIDER],
   bootstrap: [AppComponent],
 })

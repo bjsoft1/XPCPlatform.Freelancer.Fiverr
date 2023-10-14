@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { environment } from 'src/environments/environment';
+import { ROUT_URLS, environment } from 'src/environments/environment';
 
 const routes: Routes = [
-  {path:environment.webUrl.HomePage,loadChildren:()=>import('./Authentications/Parent/authentication-section.module').then(m=>m.AuthenticationSectionModule)},
-  {path:environment.WEBURL.AdminPage,loadChildren:()=>import('./Admins/Parent/admin-sections.module').then(m=>m.AdminSectionModule)},
+  {path:ROUT_URLS.HomePage,loadChildren:()=>import('./Authentications/Parent/authentication-section.module').then(m=>m.AuthenticationSectionModule)},
+  {path:ROUT_URLS.AdminPage,loadChildren:()=>import('./Admins/Parent/admin-sections.module').then(m=>m.AdminSectionModule)},
 
   // {
   //   path: '',
