@@ -71,3 +71,6 @@
 /aspnet-core/.vs
 /aspnet-core/src/XPCPlatform.HttpApi.Host/Logs/logs.txt
 /aspnet-core/src/XPCPlatform.HttpApi.Host/Logs/logs.txt
+/angular2/.angular
+/angular2/node_modules
+/angular2/package-lock.json
