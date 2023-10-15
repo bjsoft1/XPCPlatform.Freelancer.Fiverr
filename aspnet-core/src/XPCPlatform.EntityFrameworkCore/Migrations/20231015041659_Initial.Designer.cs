@@ -13,7 +13,7 @@ using XPCPlatform.EntityFrameworkCore;
 namespace XPCPlatform.Migrations
 {
     [DbContext(typeof(XPCPlatformDbContext))]
-    [Migration("20231013045026_Initial")]
+    [Migration("20231015041659_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
