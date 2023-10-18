@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 using OpenIddict.Abstractions;
@@ -11,6 +12,9 @@ using Volo.Abp;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
+using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Guids;
+using Volo.Abp.Identity;
 using Volo.Abp.OpenIddict.Applications;
 using Volo.Abp.OpenIddict.Scopes;
 using Volo.Abp.PermissionManagement;
@@ -30,7 +34,13 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
     private readonly IOpenIddictScopeManager _scopeManager;
     private readonly IPermissionDataSeeder _permissionDataSeeder;
     private readonly IStringLocalizer<OpenIddictResponse> L;
+    //------------------------------------------------------
+    private readonly IRepository<IdentityRole, Guid> _identityRoleRepository;
+    private readonly IRepository<IdentityUserRole> _identityUserRoleRepository;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly IGuidGenerator _guidGenerator;
 
+    //------------------------------------------------------
     public OpenIddictDataSeedContributor(
         IConfiguration configuration,
         IOpenIddictApplicationRepository openIddictApplicationRepository,
@@ -38,7 +48,11 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         IOpenIddictScopeRepository openIddictScopeRepository,
         IOpenIddictScopeManager scopeManager,
         IPermissionDataSeeder permissionDataSeeder,
-        IStringLocalizer<OpenIddictResponse> l )
+        IStringLocalizer<OpenIddictResponse> l,
+        IRepository<IdentityRole, Guid> identityRoleRepository,
+        IRepository<IdentityUserRole> identityUserRoleRepository,
+        UserManager<IdentityUser> userManager,
+        IGuidGenerator guidGenerator)
     {
         _configuration = configuration;
         _openIddictApplicationRepository = openIddictApplicationRepository;
@@ -47,6 +61,10 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         _scopeManager = scopeManager;
         _permissionDataSeeder = permissionDataSeeder;
         L = l;
+        _identityRoleRepository = identityRoleRepository;
+        _identityUserRoleRepository = identityUserRoleRepository;
+        _userManager = userManager;
+        _guidGenerator = guidGenerator;
     }
 
     [UnitOfWork]
@@ -54,18 +72,21 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
     {
         await CreateScopesAsync();
         await CreateApplicationsAsync();
+        await SeedUserInformation();
     }
 
     private async Task CreateScopesAsync()
     {
         if (await _openIddictScopeRepository.FindByNameAsync("XPCPlatform") == null)
         {
-            await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor {
-                Name = "XPCPlatform", DisplayName = "XPCPlatform API", Resources = { "XPCPlatform" }
+            await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor
+            {
+                Name = "XPCPlatform",
+                DisplayName = "XPCPlatform API",
+                Resources = { "XPCPlatform" }
             });
         }
     }
-
     private async Task CreateApplicationsAsync()
     {
         var commonScopes = new List<string> {
@@ -190,19 +211,7 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             );
         }
     }
-
-    private async Task CreateApplicationAsync(
-        [NotNull] string name,
-        [NotNull] string type,
-        [NotNull] string consentType,
-        string displayName,
-        string? secret,
-        List<string> grantTypes,
-        List<string> scopes,
-        string? clientUri = null,
-        string? redirectUri = null,
-        string? postLogoutRedirectUri = null,
-        List<string>? permissions = null)
+    private async Task CreateApplicationAsync([NotNull] string name, [NotNull] string type, [NotNull] string consentType, string displayName, string? secret, List<string> grantTypes, List<string> scopes, string? clientUri = null, string? redirectUri = null, string? postLogoutRedirectUri = null, List<string>? permissions = null)
     {
         if (!string.IsNullOrEmpty(secret) && string.Equals(type, OpenIddictConstants.ClientTypes.Public,
                 StringComparison.OrdinalIgnoreCase))
@@ -218,7 +227,8 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
 
         var client = await _openIddictApplicationRepository.FindByClientIdAsync(name);
 
-        var application = new AbpApplicationDescriptor {
+        var application = new AbpApplicationDescriptor
+        {
             ClientId = name,
             Type = type,
             ClientSecret = secret,
@@ -401,14 +411,134 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             await _applicationManager.UpdateAsync(client.ToModel());
         }
     }
-
     private bool HasSameRedirectUris(OpenIddictApplication existingClient, AbpApplicationDescriptor application)
     {
         return existingClient.RedirectUris == JsonSerializer.Serialize(application.RedirectUris.Select(q => q.ToString().TrimEnd('/')));
     }
-
     private bool HasSameScopes(OpenIddictApplication existingClient, AbpApplicationDescriptor application)
     {
         return existingClient.Permissions == JsonSerializer.Serialize(application.Permissions.Select(q => q.ToString().TrimEnd('/')));
     }
+
+
+    #region User Seeder
+    private async Task SeedUserInformation()
+    {
+        //TODO: Bind this all variables into Configuration JSON File
+        //---------------------------------
+        string defaultUsername = "Admin";
+        string defaultRole = "Admin";
+        string defaultEmail = "admin@xpcplatform.com";
+        string defaultPassword = "1q2w3E*";
+        //---------------------------------
+
+        // Check if the role already exists
+        var adminRole = await _identityRoleRepository.FirstOrDefaultAsync(r => r.Name.ToLower() == defaultRole.ToLower());
+        if (adminRole == null)
+        {
+            // If not, create the admin role
+            adminRole = new IdentityRole(_guidGenerator.Create(), defaultRole);
+            await _identityRoleRepository.InsertAsync(adminRole, true);
+        }
+
+        // Check if the user already exists
+        var defaultUser = await _userManager.FindByNameAsync(defaultUsername);
+        if (defaultUser == null)
+        {
+            var result = await _userManager.CreateAsync(new IdentityUser(_guidGenerator.Create(), defaultUsername, defaultEmail), defaultPassword);
+            if (result.Succeeded)
+            {
+                defaultUser = await _userManager.FindByNameAsync(defaultUsername);
+                if (defaultUser != null)
+                {
+                    // Check if the user already has the role assigned
+                    var existingUserRole = await _identityUserRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == defaultUser.Id && ur.RoleId == adminRole.Id);
+                    if (existingUserRole == null)
+                    {
+                        // If not, assign the role to the user
+                        var userRole = _userManager.AddToRolesAsync(defaultUser, new List<string> { defaultRole });
+                    }
+                }
+            }
+        }
+    }
+    #endregion User Seeder
+
 }
+
+
+
+/*
+
+
+public class XPCPlatformTestDataSeedContributor : IDataSeedContributor, ITransientDependency
+{
+    private readonly IRepository<IdentityRole, Guid> _identityRoleRepository;
+    private readonly IRepository<IdentityUserRole> _identityUserRoleRepository;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly IGuidGenerator _guidGenerator;
+
+    public XPCPlatformTestDataSeedContributor(
+        IRepository<IdentityRole
+        , Guid> identityRoleRepository
+        , IRepository<IdentityUserRole> identityUserRoleRepository
+        , UserManager<IdentityUser> userManager
+        , IGuidGenerator guidGenerator)
+    {
+        _identityRoleRepository = identityRoleRepository;
+        _identityUserRoleRepository = identityUserRoleRepository;
+        _userManager = userManager;
+        _guidGenerator = guidGenerator;
+    }
+
+    public async Task SeedAsync(DataSeedContext context)
+    {
+
+await SeedUserInformation();
+    }
+
+    private async Task SeedUserInformation()
+{
+    //TODO: Bind this all variables into Configuration JSON File
+    //---------------------------------
+    string defaultUsername = "Admin";
+    string defaultRole = "Admin";
+    string defaultEmail = "admin@xpcplatform.com";
+    string defaultPassword = "1q2w3E*";
+    //---------------------------------
+
+    // Check if the role already exists
+    var adminRole = await _identityRoleRepository.FirstOrDefaultAsync(r => r.Name.ToLower() == defaultRole.ToLower());
+    if (adminRole == null)
+    {
+        // If not, create the admin role
+        adminRole = new IdentityRole(_guidGenerator.Create(), defaultRole);
+        await _identityRoleRepository.InsertAsync(adminRole, true);
+    }
+
+    // Check if the user already exists
+    var defaultUser = await _userManager.FindByNameAsync(defaultUsername);
+    if (defaultUser == null)
+    {
+        var result = await _userManager.CreateAsync(new IdentityUser(_guidGenerator.Create(), defaultUsername, defaultEmail), defaultPassword);
+        if (result.Succeeded)
+        {
+            defaultUser = await _userManager.FindByNameAsync(defaultUsername);
+            if (defaultUser != null)
+            {
+                // Check if the user already has the role assigned
+                var existingUserRole = await _identityUserRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == defaultUser.Id && ur.RoleId == adminRole.Id);
+                if (existingUserRole == null)
+                {
+                    // If not, assign the role to the user
+                    var userRole = _userManager.AddToRolesAsync(defaultUser, new List<string> { defaultRole });
+                }
+            }
+        }
+    }
+}
+
+}
+
+ 
+ */ 

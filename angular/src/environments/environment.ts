@@ -10,7 +10,7 @@ export const environment = {
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44379/',
+    issuer: 'https://localhost:44332/',
     redirectUri: baseUrl,
     clientId: 'XPCPlatform_App',
     responseType: 'code',
@@ -19,15 +19,8 @@ export const environment = {
   },
   apis: {
     default: {
-      url: 'https://localhost:44379',
+      url: 'https://localhost:44332',
       rootNamespace: 'XPCPlatform',
     },
   },
 } as Environment;
-
-export const ROUT_URLS = 
-{
-  HomePage: '',
-  AdminPage: 'auth/admin',
-  ForgotPassword:'forgot-password',
-}

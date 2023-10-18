@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44379",
-      "sslPort": 44379
+      "applicationUrl": "https://localhost:44351",
+      "sslPort": 44351
     }
   },
   "profiles": {
@@ -18,7 +18,7 @@
     "XPCPlatform.HttpApi.Host": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:44379",
+      "applicationUrl": "https://localhost:44351",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
