@@ -21,6 +21,7 @@ namespace XPCPlatform.Constants
         {
             return $"Invalid Request, '{keyName.CapitalizeFirstLetter()}' is required.";
         }
+        public const string INVALID_COMPANY_EMAIL_DOMAIN_MESSAGE = $"Invalid Request, Company domain does not match. Please use an '{(GlobalConstants.COMPANY_DOMAIN_NAME + GlobalConstants.COMPANY_DOMAIN)}' email.";
         public static string GetUnAuthorizeValidationMessage(string? sectionName = null)
         {
             if (sectionName.IsNullOrWhiteSpace())

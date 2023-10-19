@@ -1,4 +1,6 @@
-﻿using Volo.Abp.Account;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -24,7 +26,8 @@ public class XPCPlatformApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        //context.Services.Replace(ServiceDescriptor.Transient<IdentityUserAppService, XPCPlatformIdentityService>());
+        //XPCPlatformIdentityUserManager : IdentityUserManager
+        context.Services.Replace(ServiceDescriptor.Transient<IdentityUserManager, XPCPlatformIdentityUserManager>());
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<XPCPlatformApplicationModule>();
