@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-bs-theme="light">
+
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Angular Structure | Steex - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Minimal Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- Layout config Js -->
+    <script src="../assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="../assets/css/custom.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <!-- ========== App Menu ========== -->
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <a href="index.html" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="../assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="../assets/images/logo-dark.png" alt="" height="22">
+            </span>
+        </a>
+        <a href="index.html" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="../assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="../assets/images/logo-light.png" alt="" height="22">
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover"
+            id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid">
+
+            <div id="two-column-menu">
+            </div>
+            <ul class="navbar-nav" id="navbar-nav">
+                <li class="menu-title"><span>Menu</span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="index.html">
+                        <i class="ri-honour-line"></i> <span>Introduction</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="folder-structure.html">
+                        <i class="ri-folder-2-line"></i> <span>Folder Structure</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="getting-started.html">
+                        <i class="ri-settings-6-line"></i> <span>Getting Started</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#customization" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="customization">
+                        <i class="ri-equalizer-line"></i> <span>Customization</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="customization">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="scss.html" class="nav-link">SASS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> <!-- end Dashboard Menu -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="angular-structure.html">
+                        <i class="ri-html5-line"></i> <span>Angular Structure</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="starter-kit.html">
+                        <i class="ri-rocket-line"></i> <span>Starter Kit</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarLayouts">
+                        <i class="ri-layout-3-line"></i> <span>Layouts</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarLayouts">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="vertical.html" class="nav-link">Vertical</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="horizontal.html" class="nav-link">Horizontal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="detached.html" class="nav-link">Detached</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="two-column.html" class="nav-link">Two Column</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="hovered.html" class="nav-link">Hovered</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="multi-language.html">
+                        <i class="ri-global-line"></i> <span>Multi Language</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="dark-mode.html">
+                        <i class="ri-contrast-2-line"></i> <span>Dark Mode</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="light-mode.html">
+                        <i class="ri-sun-line"></i> <span>Light Mode</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="rtl.html">
+                        <i class="ri-layout-right-2-line"></i> <span>RTL Version</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="sources.html">
+                        <i class="ri-pantone-line"></i> <span>Sources & Credits</span>
+                    </a>
+                </li>
+
+                <li class="menu-title"><i class="ri-more-fill"></i> <span>Components</span></li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="bootstrap-ui.html">
+                        <i class="ri-pencil-ruler-2-line"></i> <span>Bootstrap UI</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="icons.html">
+                        <i class="ri-compasses-2-line"></i> <span>Icons</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarAdvanceUI">
+                        <i class="ri-stack-line"></i> <span>Advance UI</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarAdvanceUI">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="sweetalert2.html" class="nav-link">Sweetalert2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="simplebar.html" class="nav-link">Simplebar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="swiper-slider.html" class="nav-link">Swiper Slider</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="ratings.html" class="nav-link">Raterjs - Ratings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarForms" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarForms">
+                        <i class="ri-file-list-3-line"></i> <span>Forms</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarForms">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="choices.html" class="nav-link">Choices</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="flatpickr.html" class="nav-link"> Flatpickr </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="colorpicker.html" class="nav-link">Pickr - Colorpicker</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="input-mask.html" class="nav-link"> Cleavejs - Input Mask</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="ngxslider.html" class="nav-link">NGX Slider - Range</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dropzone.html" class="nav-link">Dropzone - File Uploads</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarCharts">
+                        <i class="ri-pie-chart-line"></i> <span>Charts</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarCharts">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="apexcharts.html" class="nav-link"> Apexcharts </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarMaps" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarMaps">
+                        <i class="ri-map-pin-line"></i> <span>Maps</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarMaps">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="google-maps.html" class="nav-link">
+                                    Google
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="leaflet.html" class="nav-link">
+                                    Leaflet
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="amChart.html" class="nav-link">
+                                    amCharts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+
+    <div class="sidebar-background"></div>
+</div>
+<!-- Left Sidebar End -->
+<!-- Vertical Overlay-->
+<div class="vertical-overlay"></div>
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="index.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="../assets/images/logo-dark.png" alt="" height="25">
+                                </span>
+                            </a>
+
+                            <a href="index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="../assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="../assets/images/logo-light.png" alt="" height="25">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none" id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+                    </div>
+
+                    <div class="d-flex align-items-center">
+            
+                        <div class="header-item me-1 me-md-3">
+                            <a href="#!" target="_blank" class="btn btn-primary"><i class="ri-lifebuoy-line me-1 align-middle"></i> Support</a>
+                        </div>
+            
+                        <div class="header-item">
+                            <a href="#!" target="_blank" class="btn btn-danger"><i class="ri-shopping-basket-2-line me-1 align-middle"></i> Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body p-md-5">
+                        <div class="text-center">
+                            <div class="text-danger">
+                                <i class="bi bi-trash display-4"></i>
+                            </div>
+                            <div class="mt-4 fs-base">
+                                <h4 class="mb-1">Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- removeCartModal -->
+        <div id="removeCartModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-cartmodal"></button>
+                    </div>
+                    <div class="modal-body p-md-5">
+                        <div class="text-center">
+                            <div class="text-danger">
+                                <i class="bi bi-trash display-5"></i>
+                            </div>
+                            <div class="mt-4">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this product ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="remove-cartproduct">Yes, Delete It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Angular Structure</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Docs</a></li>
+                                        <li class="breadcrumb-item active">Angular Structure</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="fw-semibold">Overview </h5>
+                                    <p class="text-muted mb-4">Index.html file Structure.</p>
+
+                                    <pre><code class="language-markup">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Steex - Angular 16 Responsive Admin Dashboard Template&lt;/title&gt;
+    &lt;base href="/"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="icon" type="image/x-icon" href="assets/images/favicon.ico"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                                    <p class="text-muted my-4">app.component.html file Structure.</p>
+                                    <pre><code class="language-markup">&lt;router-outlet&gt;&lt;/router-outlet&gt;                                                                         
+</code></pre>
+
+                                    <p class="text-muted my-4">app-routing.module.ts file Structure.</p>
+                                    <pre><code class="language-markup">import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { LayoutComponent } from './layouts/layout.component';
+
+// Auth
+import { AuthGuard } from './core/guards/auth.guard';
+
+const routes: Routes = [
+    { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard] },
+    { path: 'auth', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)  },
+    { path: 'pages', loadChildren: () => import('./extraspages/extraspages.module').then(m => m.ExtraspagesModule), canActivate: [AuthGuard] },
+];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }                                                                       
+</code></pre>
+
+                                    <p class="text-muted my-4">app.module.ts file Structure.</p>
+                                    <pre><code class="language-markup">import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { LayoutsModule} from "./layouts/layouts.module";
+import { PagesModule } from "./pages/pages.module";
+
+// Auth
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+import { initFirebaseBackend } from './authUtils';
+import { FakeBackendInterceptor } from './core/helpers/fake-backend';
+import { ErrorInterceptor } from './core/helpers/error.interceptor';
+import { JwtInterceptor } from './core/helpers/jwt.interceptor';
+
+// Language
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
+export function createTranslateLoader(http: HttpClient): any {
+    return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
+
+if (environment.defaultauth === 'firebase') {
+    initFirebaseBackend(environment.firebaseConfig);
+} else {
+    FakeBackendInterceptor;
+}
+
+@NgModule({
+    declarations: [
+    AppComponent
+    ],
+    imports: [
+    TranslateModule.forRoot({
+        defaultLanguage: 'en',
+        loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+        }
+    }),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    LayoutsModule,
+    PagesModule
+    ],
+    providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+                                                                                                        
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+
+                        <div class="card">
+                            <div class="card-header p-4 pb-0">
+                                <h4 class="card-title mb-0">Theme Setup</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <p class="text-muted mb-4">
+                                    You can set the theme in the <code>src/app/layouts/layout.model.ts</code> file in the html tag.
+                                </p>
+                                <pre class="bg-dark text-white p-3">export const LAYOUT_THEME = 'default';</pre>
+                                <table class="table table-bordered mb-0 mt-3">
+                                    <tbody>
+                                        <tr>
+                                            <th>LAYOUT_THEME="default"</th>
+                                            <td>To set default theme</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LAYOUT_THEME="Material"</th>
+                                            <td>To set material theme</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LAYOUT_THEME="Creative"</th>
+                                            <td>To set creative theme</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LAYOUT_THEME="Minimal"</th>
+                                            <td>To set minimal theme</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LAYOUT_THEME="Modern"</th>
+                                            <td>To set modern theme</td>
+                                        </tr>
+                                        <tr>
+                                            <th>LAYOUT_THEME="Interaction"</th>
+                                            <td>To set interaction theme</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Layout setup</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted mb-4">You can set the default layout in the
+                                        <code>src/app/layouts/layout.model.ts</code> file.
+                                    </p>
+                                    <pre class="bg-dark text-white p-3">export const LAYOUT = 'vertical';
+export const SIDEBAR_COLOR = 'dark';
+export const SIDEBAR_SIZE = 'lg';
+export const SIDEBAR_VIEW = 'default';
+export const LAYOUT_MODE = 'light';
+export const LAYOUT_WIDTH = 'fluid';
+export const SIDEBAR_IMAGE = 'none';
+export const LAYOUT_POSITION = 'fixed';
+export const TOPBAR = 'light';
+export const DATA_PRELOADER = 'disable';</pre>
+                                    <table class="table table-bordered mb-0 mt-3">
+                                        <tbody>
+                                            <tr>
+                                                <th>LAYOUT="vertical"</th>
+                                                <td>To set default layout as Vertical</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT="horizontal"</th>
+                                                <td>To set default layout as Horizontal</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT="twocolumn"</th>
+                                                <td>To set default layout as Two column</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT_MODE="light"</th>
+                                                <td>To set Light layout mode.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT_MODE="dark"</th>
+                                                <td>To set Dark layout mode.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="lg" LAYOUT_WIDTH="fluid"</th>
+                                                <td>To set layout width Fluid and left sidebar large.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="sm-hover" LAYOUT_WIDTH="boxed"</th>
+                                                <td>To set layout width Boxed and left sidebar on hover show menu.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT_POSITION="fixed"</th>
+                                                <td>To set layout position Fixed.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>LAYOUT_POSITION="scrollable"</th>
+                                                <td>To set layout position Scrollable.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>TOPBAR="light"</th>
+                                                <td>To set the Light color of Topbar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>TOPBAR="dark"</th>
+                                                <td>To set the dark color of Topbar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="lg"</th>
+                                                <td>To set the Large left sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="md"</th>
+                                                <td>To set the Compact left sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="sm"</th>
+                                                <td>To set the Icon view left sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_SIZE="sm-hover"</th>
+                                                <td>To set the Icon hover left sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_VIEW="default"</th>
+                                                <td>To set the Default layout.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_VIEW="detached"</th>
+                                                <td>To set the Detached layout.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="light"</th>
+                                                <td>To set the Light color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="dark"</th>
+                                                <td>To set the Dark color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="gradient"</th>
+                                                <td>To set the Gradient color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="gradient-2"</th>
+                                                <td>To set the Gradient-2 color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="gradient-3"</th>
+                                                <td>To set the Gradient-3 color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_COLOR="gradient-4"</th>
+                                                <td>To set the Gradient-4 color of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_IMAGE="none"</th>
+                                                <td>To Disable image on left Sidebar.</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>SIDEBAR_IMAGE="img-1"</th>
+                                                <td>To set the img-1 Image of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_IMAGE="img-2"</th>
+                                                <td>To set the img-2 Image of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_IMAGE="img-3"</th>
+                                                <td>To set the img-3 Image of left Sidebar.</td>
+                                            </tr>
+                                            <tr>
+                                                <th>SIDEBAR_IMAGE="img-4"</th>
+                                                <td>To set the img-4 Image of left Sidebar.</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>DATA_PRELOADER="enable"</th>
+                                                <td>To enable the preloader on the Page.</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>DATA_PRELOADER="disable"</th>
+                                                <td>To disable the preloader on the Page.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+
+                    </div>
+                    <!--end row-->
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Steex.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Themesbrand
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+</body>
+
+<!-- JAVASCRIPT -->
+<script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/simplebar/simplebar.min.js"></script>
+<script src="../assets/js/plugins.js"></script>
+
+<!-- App js -->
+<script src="../assets/js/app.js"></script>
+</body>
+
+</html>
