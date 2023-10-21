@@ -41,8 +41,8 @@ export class LoginComponent {
      * Form Validatyion
      */
     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      email: ['XPCPlatform', [Validators.required, Validators.minLength(6)]],
+      password: ['1q2w3E*', [Validators.required, Validators.minLength(6)]],
     });
     // get return url from route parameters or default to '/'
     // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';

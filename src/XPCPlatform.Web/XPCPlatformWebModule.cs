@@ -58,6 +58,8 @@ namespace XPCPlatform.Web;
     )]
 public class XPCPlatformWebModule : AbpModule
 {
+        private const string DefaultCorsPolicyName = "Default";
+   
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
@@ -96,6 +98,26 @@ public class XPCPlatformWebModule : AbpModule
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
+
+            //context.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy(DefaultCorsPolicyName, builder =>
+            //    {
+            //        builder
+            //            .WithOrigins(
+            //                configuration["App:CorsOrigins"]
+            //                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
+            //                    .Select(o => o.RemovePostFix("/"))
+            //                    .ToArray()
+            //            )
+            //            .WithAbpExposedHeaders()
+            //            .SetIsOriginAllowedToAllowWildcardSubdomains()
+            //            .AllowAnyHeader()
+            //            .AllowAnyMethod()
+            //            .AllowCredentials();
+            //    });
+            //});
+
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
@@ -195,6 +217,7 @@ public class XPCPlatformWebModule : AbpModule
 
         app.UseCorrelationId();
         app.UseStaticFiles();
+        //app.UseCors(DefaultCorsPolicyName);
         app.UseRouting();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();

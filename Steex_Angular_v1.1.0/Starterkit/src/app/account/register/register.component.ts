@@ -51,17 +51,17 @@ export class RegisterComponent {
   onSubmit() {
     this.submitted = true;
 
-    //Register Api
-    this.authenticationService.register(this.f['email'].value, this.f['name'].value, this.f['password'].value).pipe(first()).subscribe(
-      (data: any) => {
-        this.successmsg = true;
-        if (this.successmsg) {
-          this.router.navigate(['/auth/login']);
-        }
-      },
-      (error: any) => {
-        this.error = error ? error : '';
-      });
+    // //Register Api
+    // this.authenticationService.register(this.f['email'].value, this.f['name'].value, this.f['password'].value).pipe(first()).subscribe(
+    //   (data: any) => {
+    //     this.successmsg = true;
+    //     if (this.successmsg) {
+    //       this.router.navigate(['/auth/login']);
+    //     }
+    //   },
+    //   (error: any) => {
+    //     this.error = error ? error : '';
+    //   });
 
     // stop here if form is invalid
     // if (this.signupForm.invalid) {
